@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "WebLingo",
+    "version": "1.0",
+
+    "action": {
+      "default_popup": "index.html",
+      "default_title": "WebLingo",
+      "default_icon": "Assets/weblingo-icon.png"
+    },
+
+    "background": {
+      "service_worker": "./JavaScript/background_script.js",
+      "type": "module"
+    },
+    
+    "permissions": [
+      "tabs",
+      "storage",
+      "scripting",
+      "contextMenus",
+      "notifications"
+    ],
+
+    "content_scripts": [
+        {
+          "matches": ["http://*/*", "https://*/*"],
+          "js": ["./JavaScript/content_script.js"],
+          "type": "module"
+        }
+    ]
+  }
+  

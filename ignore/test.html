@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Black Box Sound</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .black-box {
+      width: 200px;
+      height: 200px;
+      /* background-color: black; */
+      cursor: pointer;
+    }
+  </style>
+  <!--fontawesome-->
+  <script src="https://kit.fontawesome.com/a08852d450.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/a08852d450.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/a08852d450.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/a08852d450.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/a08852d450.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <h3 style="font-size: 14px; color: rgb(0, 0, 0); font-family: Montserrat, sans-serif; margin-top: 0.7rem;"><i class="fa-solid fa-volume-high"></i><b>(1)HIGH</b> </h3>
+  <script>
+    const clickableBox = document.getElementById('clickableBox');
+
+    // Function to play the sound
+    function playSound(url) {
+      const audio = new Audio(url); // Replace 'path/to/sound.mp3' with the actual path to your sound file
+      audio.play();
+    }
+
+    // Add a click event listener to the black box
+    clickableBox.addEventListener('click', () => {
+        playSound('./bars-us.mp3')
+    });
+  </script>
+</body>
+</html>

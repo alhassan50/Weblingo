@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Google Translation",
+        "code": "googleTranslation"
+    },
+    {
+        "name": "Microsoft Translation",
+        "code": "msTranslation"
+    }
+]

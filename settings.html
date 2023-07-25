@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebLingo Settings</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!--ICON-->
+    <link rel="icon" href="Assets/weblingo-icon.png" type="image/x-icon">
+
+    <!--JavaScript-->
+    <script type="module" src="JavaScript/settings.js" defer></script><!-- 
+    <script type="module" src="JavaScript/display.js"></script> -->
+</head>
+
+<body class="">
+    <main>
+        <section class="pop-up-header">
+            <div class="header-container">
+                <div class="logo">
+                    <figure>
+                        <img src="Assets/weblingo-icon.png" alt="weblingo icon">
+                    </figure>
+
+                    <div>
+                        <h2>
+                            WebLingo
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-settings">
+            <div class="main-settings-container">
+                <nav>
+                    <ul>
+                        <li>
+                            <h3 class="trans-nav">
+                                Translation
+                            </h3>
+                        </li>
+                        <li>
+                            <h3 class="scan-nav">
+                                LingoScan
+                            </h3>
+                        </li>
+                    </ul>
+                </nav>
+
+
+                <div class="settings-content">
+                    <form class="translate-settings">
+                        <div class="settings-header">
+                            <h3>
+                                Translation Settings
+                            </h3>
+                        </div>
+
+                        <div class="auto-detect preference">
+                            <div class="input-section">
+                                <label for="auto_detect">
+                                    Auto-Detect Source Language
+                                </label>
+                                
+                                <input type="checkbox" title="auto-detect" name="auto-detect"
+                                id="auto_detect">
+                            </div>
+
+                            <div class="description">
+                                <p>
+                                    Enable automatic detection of the source language based on the selected text. When enabled, the extension will automatically determine the language of the text, saving you the effort of manually selecting it.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="source-lang preference">
+                            <div class="input-section">
+                                <label for="source_lang">
+                                    Source Language
+                                </label>
+
+                                <select name="source-lang" id="source_lang" title="source">
+                                    
+                                </select>
+                            </div>
+
+                            <div class="description">
+                                <p>
+                                    Choose the specific source language for translation. Select the language from the drop-down menu to set it as the source language for all translations performed by the extension.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="target-lang preference">
+                            <div class="input-section">
+                                <label for="target_lang">
+                                    Target Language
+                                </label>
+
+                                <select name="target-lang" id="target_lang" title="target">
+                                    
+                                </select>
+                            </div>
+
+                            <div class="description">
+                                <p>
+                                    Select the desired target language for translation. Choose the language from the drop-down menu to specify the language to which the selected text will be translated.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="translation preference">
+                            <div class="input-section">
+                                <label for="translation_api">
+                                    Translation API
+                                </label>
+
+                                <select name="translation-api" id="translation_api" title="translation_api">
+                                    >
+                                </select>
+                            </div>
+
+                            <div class="description">
+                                <p>
+                                    Select the translation API to be used for language translation. Choose the desired translation service from the dropdown menu to determine the underlying technology that powers the translation functionality of the extension. Selecting the appropriate API ensures accurate and reliable translations based on your preferences and requirements.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="display preference">
+                            <div class="input-section">
+                                <label for="display">
+                                    Display UI
+                                </label>
+
+                                <select name="display" id="trans_display" title="display" disabled>
+                                    <option value="dialogue">
+                                        Dialogue Box
+                                    </option>
+
+                                    <option value="tooltip">
+                                        Tooltip
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="description">
+                                <p>
+                                    Select how translations are displayed. Choose between tooltip or pop-up window for the translation format. Tooltip shows a small box when hovering, while pop-up window displays the translation in a separate window. Customize your translation experience with ease.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="submit-translation">
+                            <button type="submit" class="translation-submit">
+                                <span class="unsaved">
+                                    Save Changes
+                                </span>
+                                <span class="saved">
+                                    Changes Saved
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <form class="lingo-settings">
+                        <div class="settings-header">
+                            <h3>
+                                LingoScan Settings
+                            </h3>
+                        </div>
+                        <div class="lemmatizer preference">
+                            <div class="input-section">
+                                <label for="lingoscan_lemma">
+                                    Lemmatizer
+                                </label>
+
+                                <input type="checkbox" name="lingoscan-lemma" id="lingoscan_lemma" title="lingoscan-lemma">
+                            </div>
+
+                            <div class="description">
+                                <p>
+                                    Activate lemmatization to delve deeper into word analysis. Lemmatization converts words to their base form, revealing essential linguistic insights. Explore language with enhanced clarity and understanding. Experience the magic of lemmatization today.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="lingoscan-API preference">
+                            <div class="input-section">
+                                <label for="lingoscan_api">
+                                    LingoScan API
+                                </label>
+
+                                <select name="lingoscan-api" id="lingoscan_api" title="lingoscan-api">
+                                    
+                                </select>
+                            </div>
+
+                            <div class="description">
+                                <p>
+                                    Choose the API for performing word breakdown and analysis. Select between Merriam-Webster Dictionary API and Oxford Dictionaries API to enhance your language comprehension and understanding. Get in-depth definitions, synonyms, and usage examples for better context and clarity.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="preference features">
+                            <div class="input-section">
+                                <label for="lingoscan_api">
+                                    Enable/Disable Features
+                                </label>
+                            </div>
+
+                            <div class="main-features-container description oxford-features">
+                                <div class="oxford main-feature">
+                                    <input type="checkbox" title="shortdef" name="shortdef" id="oxford_short_def" checked disabled>
+                                    
+                                    <label for="shortdef">
+                                        Word definition
+                                    </label>
+                                </div>
+                                
+                                <div class="oxford main-feature">
+                                    <input type="checkbox" title="partOfSpeech" name="partOfSpeech" id="oxford_part_of_speech" checked disabled>
+                                    
+                                    <label for="partOfSpeech">
+                                        Part of speech
+                                    </label>
+                                </div>
+                                
+                                <div class="oxford main-feature">
+                                    <input type="checkbox" title="pronunciation" name="pronunciation" id="oxford_pronunciation" checked>
+                                    
+                                    <label for="pronunciation">
+                                        Pronunciation
+                                    </label>
+                                </div>
+                                
+                                <div class="oxford main-feature">
+                                    <input type="checkbox" title="phoneSpelling" name="phoneSpelling" id="oxford_phone_spelling" checked>
+                                    
+                                    <label for="phoneSpelling">
+                                        Phonetic spelling
+                                    </label>
+                                </div>
+
+                                <div class="oxford main-feature">
+                                    <input type="checkbox" title="usages" name="usages" id="oxford_usages" checked disabled>
+                                    
+                                    <label for="usages">
+                                        Usages
+                                    </label>
+                                </div>
+                                
+                                <div class="oxford main-feature">
+                                    <input type="checkbox" title="synonyms" name="synonyms" id="oxford_synonyms" checked>
+                                    
+                                    <label for="synonyms">
+                                        Synonyms
+                                    </label>
+                                </div>
+                                
+                                <div class="oxford main-feature">
+                                    <input type="checkbox" title="antonyms" name="antonyms" id="oxford_antonyms">
+                                    
+                                    <label for="antonyms">
+                                        Antonyms
+                                    </label>
+                                </div>
+                                
+                            </div>
+
+                            <div class="main-features-container description webster-features">
+                                <div class="webster main-feature">
+                                    <input type="checkbox" title="shortdef" name="shortdef" id="webster_short_def" checked= "true" disabled="true">
+                                    
+                                    <label for="websterShortdef">
+                                        Word definition
+                                    </label>
+                                </div>
+                                
+                                <div class="webster main-feature">
+                                    <input type="checkbox" title="partOfSpeech" name="partOfSpeech" id="webster_part_of_speech" checked disabled="true">
+                                    
+                                    <label for="websterPartOfSpeech">
+                                        Part of speech
+                                    </label>
+                                </div>
+                                
+                                <div class="webster main-feature">
+                                    <input type="checkbox" title="phoneticSpelling" name="phoneticSpelling" id="webster_phoneSpelling" checked>
+                                    
+                                    <label for="websterPhonSpelling">
+                                        Phonetic spelling
+                                    </label>
+                                </div>
+                                
+                                <div class="webster main-feature">
+                                    <input type="checkbox" title="variations" name="variations" id="webster_variations" checked>
+                                    
+                                    <label for="websterVariations">
+                                        Variations
+                                    </label>
+                                </div>
+
+                                <!-- <div class="webster main-feature">
+                                    <input type="checkbox" title="usages" name="usages" id="webster_usages" checked>
+                                    
+                                    <label for="websterSsages">
+                                        Usages
+                                    </label>
+                                </div>
+                                
+                                <div class="webster main-feature">
+                                    <input type="checkbox" title="synonyms" name="synonyms" id="webster_synonyms" checked>
+                                    
+                                    <label for="websterSynonyms">
+                                        Synonyms
+                                    </label>
+                                </div>
+                                
+                                <div class="webster main-feature">
+                                    <input type="checkbox" title="antonyms" name="antonyms" id="webster_antonyms">
+                                    
+                                    <label for="websterSntonyms">
+                                        Antonyms
+                                    </label>
+                                </div> -->
+                                
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="display preference">
+                            <div class="input-section">
+                                <label for="display">
+                                    Display UI
+                                </label>
+
+                                <select name="display" id="scan_display" title="display" disabled>
+                                    <option value="dialogue">
+                                        Dialogue Box
+                                    </option>
+
+                                    <option value="tooltip">
+                                        Tooltip
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="description">
+                                <p>
+                                    Select the preferred display option for the word breakdown and analysis feature. Choose between displaying the breakdown as a tooltip or a pop-up window for a seamless and convenient user experience. Customize the display to suit your preference and make the most out of the LingoScan functionality.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="submit-translation">
+                            <button type="submit" class="lingoscan-submit">
+                                <span class="unsaved">
+                                    Save Changes
+                                </span>
+                                <span class="saved">
+                                    Changes Saved
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>
