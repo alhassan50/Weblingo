@@ -210,7 +210,7 @@ const freeDictionaryContent = (header, content) => {
     const {breakDown, lemma, features} = content
     const {headerElement, rule, subHeaderElement} = createMainHeader(header, lemma)
 
-    const {pronunciation, phoneSpelling, usages, synonyms, antonyms} = features
+    let {pronunciation, phoneSpelling, usages, synonyms, antonyms} = features
 
     console.log("features", features)
 
@@ -241,9 +241,12 @@ const freeDictionaryContent = (header, content) => {
             console.log(document.querySelector('head'));
         }
 
-        const phoneticSpelling = phoneSpelling ? `/${breakDownEl.phoneticSpelling}/` : ``
-        const icon = pronunciation ? `<i class="fa-solid fa-volume-high">sound </i>` : ``
-        subHeaderElement.innerHTML = `${icon} <b>(${mainCounter})${lemma.toUpperCase()}</b> ${phoneticSpelling}`
+        let phoneticSpelling = phoneSpelling ? `<br>/${breakDownEl.phoneticSpelling}/` : ``
+        phoneticSpelling = phoneticSpelling ? breakDownEl.ukPhoneticSpelling : phoneticSpelling
+        phoneticSpelling = phoneticSpelling ? breakDownEl.usPhoneticSpelling : phoneticSpelling
+        const icon = pronunciation ? `<i class="fa-solid fa-volume-high">play sound </i><br>\n` : ``
+        //icon.style.cursor = `pointer`
+        subHeaderElement.innerHTML = `${icon}<b>(${mainCounter})${lemma.toUpperCase()}</b> ${phoneticSpelling}`
         console.log(subHeaderElement);
         const cloneSubHeader = subHeaderElement.cloneNode(true)
         breakDownElContainer.appendChild(cloneSubHeader)
@@ -485,6 +488,29 @@ const createBox = (message) => {
                 mainContentContainer.appendChild(errorBox)
             }
             break;
+        case "lingoScan redirect":
+            heading = `LingoScan`
+            mainContent = data
+            console.log(data);
+            const redirectContainer = document.createElement('div')
+            const lemmaRedirHeader = document.createElement('h2')
+            lemmaRedirHeader.innerText = `Select a word below and click on LingoScan in the context menu:`
+            redirectContainer.appendChild(lemmaRedirHeader)
+            mainContent.forEach((lemma, index) => {
+                console.log('index ', index, lemma);
+                const lemmaRedir = document.createElement('h2')
+                lemmaRedir.innerText = lemma
+                lemmaRedir.style.cursor = `pointer`
+                lemmaRedir.style.marginBlock = `3px`
+                /* lemmaRedir.addEventListener('click', () => {
+                    activateLingoScan(lemma)
+                }) */
+                redirectContainer.appendChild(lemmaRedir)
+                console.log(redirectContainer);
+            })
+            console.log(redirectContainer);
+            mainContentContainer = redirectContainer
+            break;
         default:
             break;
     }
@@ -513,4 +539,13 @@ const createBox = (message) => {
 
     const bodyElement = document.querySelector('body')
     bodyElement.appendChild(box)
+}
+
+const activateLingoScan = (lemma) => {
+    chrome.runtime.sendMessage(
+        {
+            action: "lingoScan",
+            message: lemma
+        }
+    )
 }

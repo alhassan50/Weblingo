@@ -1,7 +1,6 @@
 import {
     getUserPreferences
 } from './webLingoDatabase/userPrefDatabase.js'
-//import {lemmatizer} from './lemmaization.js';
 
 let selectedText
 
@@ -81,9 +80,10 @@ let fetchApiResp = async (url, method, data, parseType) => {
 
         console.log(response);
 
-        const parsedResp = await response[parseType]()
-
-        return parsedResp
+        const parsedResp = await response.json()
+        
+        const finalResult = parseType ? parsedResp.translation : parsedResp.lemma
+        return finalResult
     } catch (error) {
         /* console.error('Error fetching API response:', error); */
         return `Error: ${error}`
@@ -99,12 +99,12 @@ chrome.contextMenus.onClicked.addListener( async (info, tab) => {
     const { trans_api } = userTranslationPref
     const {websterFeatures, oxfordFeatures, lemmatize} = userLingoScanPref
     selectedText = info.selectionText
+    const method = 'POST'
 
     if (info.menuItemId === 'quickTranslate' || info.parentMenuItemId === 'translateToTargetLang') {
         console.log(info.menuItemId, ' ', info.selectionText);
         console.log(info.menuItemId, ' ', info.parentMenuItemId, ' ', info.selectionText);
 
-        const method = 'POST'
         
         if (src_lang === 'noLanguage') {
             src_lang = ''
@@ -118,16 +118,16 @@ chrome.contextMenus.onClicked.addListener( async (info, tab) => {
     
         const translationData = {
             text: selectedText,
-            from: src_lang,
+            from: info.menuItemId === 'quickTranslate' ? src_lang : '',
             to: target_lang,
             APIChoice: trans_api
         }
 
         console.log(translationData);
-        const translationURL = `http://127.0.0.1:5001/platinum-hostels/us-central1/weblingoTranslation`
-        //http://127.0.0.1:5001/platinum-hostels/us-central1/translateText
-
-        const translation = await fetchApiResp(translationURL, method ,translationData, "text")
+        const googletranslationURL = `https://46nykrhdzl.execute-api.eu-north-1.amazonaws.com/Dev/api/getgoogletranslation`
+        const mstranslationURL = `https://46nykrhdzl.execute-api.eu-north-1.amazonaws.com/Dev/api/getmstranslations`
+        const translationURL = (trans_api === 'googleTranslation') ? googletranslationURL : mstranslationURL
+        const translation = await fetchApiResp(translationURL, method , translationData, "text")
 
         console.log(translation);
         const translationResultData = {
@@ -149,11 +149,26 @@ chrome.contextMenus.onClicked.addListener( async (info, tab) => {
             let formatedText = selectedText.toLowerCase();
             let features
 
-            /* console.log('formatedText ', formatedText)
+            console.log('formatedText ', formatedText)
             if (lemmatize) {
-                formatedText = lemmatizer(formatedText)
+                const lemmaURL = `https://46nykrhdzl.execute-api.eu-north-1.amazonaws.com/Dev/lemmatizerapi`
+                const lemmaObj = {formatedText: formatedText}
+                console.log(lemmaObj)
+                formatedText = await fetchApiResp(lemmaURL, method , lemmaObj)
                 console.log('lemma: ', formatedText)
-            } */
+                if (formatedText.length > 1) {
+                    const messageData = {
+                        feature: 'lingoScan redirect',
+                        data: formatedText
+                    }
+                    sendResp(tab, messageData)
+                    return
+                } else if (formatedText.length === 1) {
+                    formatedText = formatedText[0]
+                } else {
+                    throw new Error(`Lemmatizer Error`)
+                }
+            }
 
             //console.log('before fomttng: ', selectedText);
             if (userLingoScanPref.scan_api === 'webster') {
@@ -336,5 +351,8 @@ const websterFilter = (breakDownJSON, phrase) => {
     //console.log(resultArray);
     return resultArray;
 };
+
+
+/////////////////////google 
 
 console.log("bckgrd");

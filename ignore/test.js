@@ -75,7 +75,7 @@ function extractSynonyms(entry) {
 console.log(resultArray); */
 // Load wink-lemmatizer
 import lemmatizer from 'node-lemmatizer';
-console.log(lemmatizer.only_lemmas('signs up'))
+console.log(lemmatizer.only_lemmas('empathy'))
 /* import natural from 'natural';
 const PorterStemmer = natural.PorterStemmer;
 

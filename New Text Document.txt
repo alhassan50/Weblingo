@@ -1,0 +1,56 @@
+Weblingo
+
+Overview
+
+Weblingo is a user-friendly translation tool that allows users to quickly and effortlessly translate text from one language to another. Whether you're browsing a foreign website, reading articles, or communicating with friends in different languages, Weblingo is here to make translation a breeze.
+
+Key Features
+
+- Quick Translate: Select any text on a webpage and use the right-click context menu to instantly translate it to your preferred language.
+
+- Translate to Multiple Languages: Choose from a wide range of languages to translate your selected text into.
+
+- LingoScan: Get detailed word breakdowns, synonyms, antonyms, and more with our advanced LingoScan feature.
+
+- User Preferences: Set your preferred source and target languages, translation API, and LingoScan settings for a personalized translation experience.
+
+- User-Friendly Interface: Weblingo is designed with simplicity and ease of use in mind, making it accessible to everyone.
+
+How to Use
+
+1. Download the entire folder.
+2. Open Google Chrome and navigate to "Manage Extensions".
+3. Turn on the "Developer Mode" and click on "Load Unpack".
+4. Select the extesnion folder you downloaded in Step 1 and enable it.
+5. Click on your extension icon and select WebLingo.
+6. On the pop-up that appears, click on the settings icon.
+7. Configure settings for both translation and "LingoScan" to ensure the extention works properly (IMPORTANT)
+8. Right-click on any text you want to translate on any webpage, and select "Quick Tanslate" from the context menu.
+9. Choose your desired target language from the "Translate to..." submenu.
+10. Voila! The translation will appear instantly, providing you with a smooth and hassle-free experience.
+
+## LingoScan Feature
+
+1. To use LingoScan, right-click on a word and select "LingoScan" from the context menu.
+2. Explore the detailed breakdown of the word, including its part of speech, synonyms, antonyms, and more.
+
+
+## Future Enhancements
+
+We are continuously working to enhance your Weblingo experience. Stay tuned for upcoming updates, which will include more languages, new translation APIs, and additional features based on user feedback.
+
+## Privacy Policy
+
+Weblingo respects your privacy. We do not collect any personal data or store your translation history on our servers.
+
+## Credits
+
+Weblingo is built with love by the Abdullahi Alhassan Baaba (2023).
+
+## License
+
+Weblingo is open-source. Feel free to contribute to the project and help us make translation accessible to all.
+
+---
+
+Thank you for choosing Weblingo! We hope it simplifies your multilingual experience on the web. Happy translating!

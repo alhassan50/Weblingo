@@ -1,9 +1,11 @@
 [
     { "code": "ar", "name": "Arabic" },
+    { "code": "ak", "name": "Twi (Akan)" },
     { "code": "zh-CN", "name": "Chinese (Simplified)" },
     { "code": "en", "name": "English" },
     { "code": "fr", "name": "French" },
     { "code": "de", "name": "German" },
+    { "code": "ha", "name": "Hausa" },
     { "code": "id", "name": "Indonesian" },
     { "code": "ja", "name": "Japanese" },
     { "code": "pt", "name": "Portuguese" },

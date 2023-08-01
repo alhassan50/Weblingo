@@ -1,16 +1,15 @@
-const projectId = "inner-fx-389410";
-const location = "global";
-
-
 // Imports the Google Cloud Translation library
-const {TranslationServiceClient} = require("@google-cloud/translate");
-
-// Instantiates a client
-const translationClient = new TranslationServiceClient({
-  keyFilename: "./APIs/inner-fx-389410-6731f8264e00.json",
-});
+import { TranslationServiceClient } from "@google-cloud/translate";
 
 const getGoogleTranslateText = async (dataObj) => {
+  const projectId = "inner-fx-389410";
+  const location = "global";
+
+  // Instantiates a client
+  const translationClient = new TranslationServiceClient({
+    keyFilename: "./APIs/inner-fx-389410-6731f8264e00.json",
+  });
+  
   const {from, to, text} = dataObj;
   // Construct request
   const request = {
@@ -30,7 +29,8 @@ const getGoogleTranslateText = async (dataObj) => {
   }
   return result;
 };
-
+/* 
 module.exports = {
   getGoogleTranslateText,
 };
+ */
